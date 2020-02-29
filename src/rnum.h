@@ -25,7 +25,7 @@ const static char *STDOUT_SHORT = "-so";
 const static char *STDOUT_LONG = "--to-stdout";
 
 const static char *USAGE[USAGE_MAX] = {
-					"-r or --range: set the max value the generated number can be\n", 
+					"-r or --range: set the max value the generated number can be", 
 					"-so or --to-stdout: print the generated number to stdout instead of returning it",
 					"-h or --help: print this"
 					};

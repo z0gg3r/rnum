@@ -44,12 +44,13 @@ flags_t parse(int argc, char *argv[])
 void help()
 {
 	for(int i = 0; i < USAGE_MAX; ++i)
-		printf("%s", USAGE[i]);
+		printf("%s\n", USAGE[i]);
 }
 
 int main(int argc, char *argv[])
 {
 	flags_t flags = parse(argc, argv);
+
 	if(flags.help)
 		help();
 	else if(flags.range && flags._stdout)
