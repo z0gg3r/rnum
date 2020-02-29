@@ -8,7 +8,7 @@
 int get_rand(char *_range)
 {
 	int range = atoi(_range);
-	if(range)
+	if (range)
 		return _get_rand() % range;
 	return _get_rand();
 }
@@ -28,15 +28,15 @@ flags_t parse(int argc, char *argv[])
 		._stdout = 0,
 		.r_index = -1,
 	};
-	if(argc == 1)
+	if (argc == 1)
 		return flags;
-	for(int i = 0; i < argc; ++i) {
-		if(cmp(argv[i],  RANGE_SHORT) || cmp(argv[i], RANGE_LONG)) {
+	for (int i = 0; i < argc; ++i) {
+		if (cmp(argv[i],  RANGE_SHORT) || cmp(argv[i], RANGE_LONG)) {
 			flags.range = 1;
 			flags.r_index = i + 1;
-		} else if(cmp(argv[i], HELP_SHORT) || cmp(argv[i], HELP_LONG)) {
+		} else if (cmp(argv[i], HELP_SHORT) || cmp(argv[i], HELP_LONG)) {
 			flags.help = 1;
-		} else if(cmp(argv[i], STDOUT_SHORT) || cmp(argv[i], STDOUT_LONG)) {
+		} else if (cmp(argv[i], STDOUT_SHORT) || cmp(argv[i], STDOUT_LONG)) {
 			flags._stdout = 1;
 		}
 	}
@@ -45,7 +45,7 @@ flags_t parse(int argc, char *argv[])
 
 void help()
 {
-	for(int i = 0; i < USAGE_MAX; ++i)
+	for (int i = 0; i < USAGE_MAX; ++i)
 		printf("%s\n", USAGE[i]);
 }
 
@@ -58,13 +58,13 @@ int main(int argc, char *argv[])
 {
 	flags_t flags = parse(argc, argv);
 
-	if(flags.help)
+	if (flags.help)
 		help();
-	else if(flags.range && flags._stdout)
+	else if (flags.range && flags._stdout)
 		printf("%d\n", get_rand(argv[flags.r_index]));
-	else if(flags.range)
+	else if (flags.range)
 		return get_rand(argv[flags.r_index]);
-	else if(flags._stdout)
+	else if (flags._stdout)
 		printf("%d\n", _get_rand());
 	else
 		return _get_rand();
