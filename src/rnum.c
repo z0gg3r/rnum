@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <string.h>
 
 #include "rnum.h"
 
@@ -29,12 +30,15 @@ flags_t parse(int argc, char *argv[])
 	if(argc == 1)
 		return flags;
 	for(int i = 0; i < argc; ++i) {
-		if(argv[i] == RANGE_SHORT || argv[i] == RANGE_LONG) {
+		if(cmp(argv[i],  RANGE_SHORT) || cmp(argv[i], RANGE_LONG)) {
+			printf("range\n");
 			flags.range = 1;
 			flags.r_index = i;
-		} else if(argv[i] == HELP_SHORT || argv[i] == HELP_LONG) {
+		} else if(cmp(argv[i], HELP_SHORT) || cmp(argv[i], HELP_LONG)) {
+			printf("help\n");
 			flags.help = 1;
-		} else if(argv[i] == STDOUT_SHORT || argv[i] == STDOUT_LONG) {
+		} else if(cmp(argv[i], STDOUT_SHORT) || cmp(argv[i], STDOUT_LONG)) {
+			printf("stdout\n");
 			flags._stdout = 1;
 		}
 	}
@@ -47,8 +51,17 @@ void help()
 		printf("%s\n", USAGE[i]);
 }
 
+int cmp(char *a, char *b)
+{
+	int c = strcmp(a, b);
+	printf("%s && %s = %d\n", a, b, c);
+	return strcmp(a, b) == 0;
+}
+
 int main(int argc, char *argv[])
 {
+	printf("%s && %s = %d\n", argv[1], RANGE_SHORT, cmp(argv[1], RANGE_SHORT));
+
 	flags_t flags = parse(argc, argv);
 
 	if(flags.help)

@@ -15,14 +15,14 @@ typedef struct flags_t {
 	int r_index;
 } flags_t;
 
-const static char *RANGE_SHORT = "-r";
-const static char *RANGE_LONG = "--range";
+static char *RANGE_SHORT = "-r";
+static char *RANGE_LONG = "--range";
 
-const static char *HELP_SHORT = "-h";
-const static char *HELP_LONG = "--help";
+static char *HELP_SHORT = "-h";
+static char *HELP_LONG = "--help";
 
-const static char *STDOUT_SHORT = "-so";
-const static char *STDOUT_LONG = "--to-stdout";
+static char *STDOUT_SHORT = "-so";
+static char *STDOUT_LONG = "--to-stdout";
 
 const static char *USAGE[USAGE_MAX] = {
 					"-r or --range: set the max value the generated number can be", 
@@ -34,5 +34,6 @@ int get_rand(char *);
 flags_t parse(int, char *[]);
 void help();
 int _get_rand();
+int cmp(char *, char *);
 
 #endif
