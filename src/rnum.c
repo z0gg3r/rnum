@@ -20,6 +20,7 @@ int _get_rand()
 
 flags_t parse(int argc, char *argv[])
 {
+	printf("parsing...\n");
 	flags_t flags = {
 		.range = 0,
 		.help = 0,
