@@ -6,7 +6,7 @@ r(andom)num(ber)
 rnum is a simple call to stdlibs rand() with srand initialised using
 time.h\'s time function and time\_t type.
 
-takes three arguemnts:
+takes three arguments:
 
 -   -h \| \--help : print help message and quit
 -   -r \<num\> \| \--range \<num\> : generate number up to \--num
