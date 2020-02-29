@@ -53,7 +53,7 @@ int main(int argc, char *argv[])
 	if(flags.help)
 		help();
 	else if(flags.range && flags._stdout)
-		printf("%d\n", get_rand(argv[flags.r_inde]));
+		printf("%d\n", get_rand(argv[flags.r_index]));
 	else if(flags.range)
 		return get_rand(argv[flags.r_index]);
 	else if(flags._stdout)
