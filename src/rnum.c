@@ -8,7 +8,9 @@
 int get_rand(char *_range)
 {
 	int range = atoi(_range);
-	return _get_rand() % range;
+	if(range)
+		return _get_rand() % range;
+	return _get_rand();
 }
 
 int _get_rand()
@@ -26,7 +28,6 @@ flags_t parse(int argc, char *argv[])
 		._stdout = 0,
 		.r_index = -1,
 	};
-	printf("%d\n", argc);
 	if(argc == 1)
 		return flags;
 	for(int i = 0; i < argc; ++i) {
