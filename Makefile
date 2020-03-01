@@ -1,4 +1,5 @@
 rnum: src/rnum.c src/rnum.h
+	mkdir -p bin 
 	gcc -o bin/rnum src/rnum.c
 
 clean:
