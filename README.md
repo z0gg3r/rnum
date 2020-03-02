@@ -8,6 +8,7 @@ time.h\'s time function and time\_t type.
 
 takes three arguments:
 
--   -h \| \--help : print help message and quit
--   -r \<num\> \| \--range \<num\> : generate number up to \--num
--   -so \| \--to-stdout : print number to stdout via printf
+-	-h \| \--help : print help message and quit
+-	-r \<num\> \| \--range \<num\> : generate number up to \--num
+- 	-so \| \--to-stdout : print number to stdout via printf
+-	-i \<num> \| \--iter \<num> : generate \--num numbers
