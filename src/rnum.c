@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <string.h>
+#include <unistd.h>
 
 #include "rnum.h"
 
@@ -63,16 +64,21 @@ void rand_iter(char *_range, char *_max)
 {
 	int range = atoi(_range);
 	int max = atoi(_max);
-	if (range && max)
-		for (int i = 0; i < max; ++i)
+	if (range && max) {
+		for (int i = 0; i < max; ++i) {
 			printf("%d\n", get_rand(_range));
-	else if (range)
+			sleep(1);
+		}
+	} else if (range) {
 		printf("%d\n", get_rand(_range));
-	else if (max)
-		for (int i = 0; i < max; ++i)
+	} else if (max) {
+		for (int i = 0; i < max; ++i) {
 			printf("%d\n", _get_rand());
-	else
+			sleep(1);
+		}
+	} else {
 		printf("%d\n", _get_rand());
+	}
 }
 
 int main(int argc, char *argv[])
