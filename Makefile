@@ -1,4 +1,4 @@
-rnum: src/rnum.c src/rnum.h
+rnum: src/rnum.c
 	mkdir -p bin 
 	gcc -o bin/rnum src/rnum.c
 
