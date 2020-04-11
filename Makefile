@@ -1,6 +1,6 @@
 rnum: src/rnum.c
 	mkdir -p bin 
-	gcc -o bin/rnum src/rnum.c
+	gcc -o bin/rnum src/rnum.c -g
 
 clean:
 	rm -f bin/rnum
