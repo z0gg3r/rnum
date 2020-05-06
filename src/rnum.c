@@ -1,5 +1,6 @@
 #include <time.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 int get_rand(char **argv);
 
@@ -17,5 +18,7 @@ int main(int argc, char *argv[])
 	srand(time(NULL));
 	if (argc > 1)
 		return get_rand(argv);
+	else
+		fprintf(stderr, "rnum <LIMIT>\n");
 	return 0;
 }
