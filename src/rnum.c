@@ -4,7 +4,7 @@
 
 int get_rand(char **argv);
 
-int get_rand(char*argv[])
+int get_rand(char *argv[])
 {
 	char *c = argv[1];
 	int range = atoi(c);
@@ -15,10 +15,11 @@ int get_rand(char*argv[])
 
 int main(int argc, char *argv[])
 {
-	srand(time(NULL));
+	time_t t;
+	srand((unsigned) time(&t));
 	if (argc > 1)
 		return get_rand(argv);
 	else
-		fprintf(stderr, "rnum <LIMIT>\n");
+		fprintf(stderr, "%s <LIMIT>\n", argv[0]);
 	return 0;
 }
