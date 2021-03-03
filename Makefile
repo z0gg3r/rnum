@@ -1,11 +1,15 @@
-rnum: src/rnum.c
-	mkdir -p bin 
-	gcc -o bin/rnum src/rnum.c -g
+CC=gcc
+CFLAGS=-Wall
+LIBS=
+
+OBJQ = rnum.o
+
+%.o: src/%.c
+	$(CC) -c -o $@ $< $(CFLAGS)
+
+rnum: $(OBJQ)
+	$(CC) -o $@ $^ $(CLFAGS) $(LIBS)
+	rm -f *.o
 
 clean:
-	rm -f bin/rnum
-
-install: bin/rnum
-	cp bin/rnum /bin/rnum
-
-.PHONY: clean, install
+	rm -f rnum rnum.exe *.o
