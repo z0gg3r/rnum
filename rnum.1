@@ -1,0 +1,34 @@
+.TH RNUM 1 2021-03-15 GNU
+
+.SH NAME
+rnum \- Random Number Generator
+
+.SH SYNOPSIS
+.B tempconv
+\fB\-r\fR " " \fImax\fR
+[\fB\-p\fR]
+[\fB\-b\fR " " \fImin\fR]
+
+.SH DESCRIPTION
+.B rnum
+is a small util that generates a 'random' number up to the value that is passed to it.
+
+.SH OPTIONS
+.TP
+.B \-r \fImax
+sets the ceiling for the number generation
+.TP
+.B \-b \fImin
+sets the base for the number generation
+.TP
+.B \-p
+print to stdout
+
+.SH NOTES
+.B rnum
+uses time.h to seed srand and is thus not safe for cryptographic uses. Per default
+.B rnum
+returns the generated number, instead of printing it.
+
+.SH AUTHOR
+zockerfreunde03/z0gg3r <zockerfreunde03.info@gmx.de>
