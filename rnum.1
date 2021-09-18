@@ -1,13 +1,13 @@
-.TH RNUM 1 2021-03-15 GNU
+.TH RNUM 1 2021-09-18 GNU
 
 .SH NAME
 rnum \- Random Number Generator
 
 .SH SYNOPSIS
-.B tempconv
-\fB\-r\fR " " \fImax\fR
-[\fB\-p\fR]
-[\fB\-b\fR " " \fImin\fR]
+.B rnum
+\fB\-r\fR \fImax\fR
+[\fB\-l\fR]
+[\fB\-b\fR \fImin\fR]
 
 .SH DESCRIPTION
 .B rnum
@@ -21,14 +21,14 @@ sets the ceiling for the number generation
 .B \-b \fImin
 sets the base for the number generation
 .TP
-.B \-p
-print to stdout
+.B \-l
+return instead of printing to stdout (legacy mode)
 
 .SH NOTES
 .B rnum
 uses time.h to seed srand and is thus not safe for cryptographic uses. Per default
 .B rnum
-returns the generated number, instead of printing it.
+used to return the generated number per default, however now that is hidden behint the -l flag..
 
 .SH AUTHOR
 zockerfreunde03/z0gg3r <zockerfreunde03.info@gmx.de>
