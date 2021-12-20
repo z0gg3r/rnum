@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
 {
 	time_t t;
 	srand((unsigned) time(&t));
-#ifndef _ALWAYS_RETURN
+#ifndef _ENABLE_LEGACY
 	int print = 1;
 #else
 	int print = 0;
