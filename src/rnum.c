@@ -1,4 +1,8 @@
+#ifndef _USE_TIME
 #include <time.h>
+#else
+#include <sys/random.h>
+#endif
 #include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>
@@ -22,8 +26,21 @@ void print_usage(char * c)
 
 int main(int argc, char *argv[])
 {
+#ifndef _USE_TIME
 	time_t t;
 	srand((unsigned) time(&t));
+#else
+	char *s = malloc(sizeof(char) * 128);
+	if ((getrandom(s, 128, 0)) == -1) {
+		free(s);
+
+		fprintf(stderr, "getrandom encountered an error\n");
+		return 1;
+	}
+
+	srand(s);
+	free(s);
+#endif
 #ifndef _ENABLE_LEGACY
 	int print = 1;
 #else
@@ -47,6 +64,7 @@ int main(int argc, char *argv[])
 			case 'b':
 				base = atoi(optarg);
 				base_set = 1;
+				break;
 			default:
 				print_usage(argv[0]);
 				return EXIT_FAILURE;

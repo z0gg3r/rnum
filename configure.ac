@@ -14,8 +14,18 @@ AC_ARG_ENABLE([legacy],
 	      [enable_legacy=$enableval],
 	      [enable_legacy=no]
       )
+AC_ARG_ENABLE([time],
+	      AS_HELP_STRING([--enable-time], [Use time instead of getrandom ]),
+	      [use_time=$enableval],
+	      [use_time=no]
+	)
 if test "x$enable_legacy" = "xyes"; then
 	AC_DEFINE([_ENABLE_LEGACY], [1], [Enable legacy mode])
 fi
+
+if test "x$use_time" = "xyes"; then
+	AC_DEFINE([_USE_TIME], [1], [Use time instead of getrandom])
+fi
+
 AC_CONFIG_FILES([Makefile])
 AC_OUTPUT
