@@ -20,7 +20,7 @@ void print_usage(char * c)
 	fprintf(
 	stderr,
 	"Usage: %s [OPTION]\n Options are:\n -r <VALUE>: The upper limit for the random number\n-l: Return the value instead of printing it\n",
-       	c
+	c
 	);
 }
 
