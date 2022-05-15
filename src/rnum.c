@@ -119,6 +119,10 @@ int *last_arg(int argc, char **argv)
 			++i;
 			continue;
 		}
+
+		if (!strcmp(argv[i], "-l") || !strcmp(argv[i], "--legacy"))
+			continue;
+
 		one = two;
 		two = i;
 	}
