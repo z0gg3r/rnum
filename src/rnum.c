@@ -115,7 +115,7 @@ int *last_arg(int argc, char **argv)
 	int two = 0;
 	for (int i = 1; i < argc; ++i) {
 		if (!strcmp(argv[i], "-b") || !strcmp(argv[i], "--base")
-			|| !strcmp(argv[i], "-r") || !strcmp(argv[i], "--range")) {
+				|| !strcmp(argv[i], "-r") || !strcmp(argv[i], "--range")) {
 			++i;
 			continue;
 		}
@@ -138,10 +138,10 @@ int get_rand(int range, int base)
 void print_usage(char *c)
 {
 	fprintf(
-	stderr,
-	"Usage: %s RANGE [BASE] or %s -r RANGE [-b BASE]",
-	c,
-	c
+		stderr,
+		"Usage: %s RANGE [BASE] or %s -r RANGE [-b BASE]",
+		c,
+		c
 	);
 }
 
