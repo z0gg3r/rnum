@@ -1,4 +1,4 @@
-AC_INIT([rnum], [0.2.2])
+AC_INIT([rnum], [0.2.3])
 AC_CONFIG_AUX_DIR([build-aux])
 AM_INIT_AUTOMAKE([foreign 1.13 subdir-objects dist-zstd no-dist-gzip])
 AM_SILENT_RULES([yes])

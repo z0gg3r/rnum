@@ -1,11 +1,13 @@
-.TH RNUM 1 2021-09-18 GNU
+.TH RNUM 1 2022-05-15 GNU
 
 .SH NAME
 rnum \- Random Number Generator
 
 .SH SYNOPSIS
 .B rnum
-\fB\-r\fR \fImax\fR
+\fBRANGE\fR
+[\fBBASE\fR]
+[\fB\-r\fR \fImax\fR]
 [\fB\-l\fR]
 [\fB\-b\fR \fImin\fR]
 
@@ -15,18 +17,17 @@ is a small util that generates a 'random' number up to the value that is passed 
 
 .SH OPTIONS
 .TP
-.B \-r \fImax
+.B \-r, \-\-range \fImax
 sets the ceiling for the number generation
 .TP
-.B \-b \fImin
+.B \-b, \-\-base \fImin
 sets the base for the number generation
 .TP
-.B \-l
+.B \-l, \-\-legacy
 return instead of printing to stdout (legacy mode)
 
 .SH NOTES
-.B rnum
-uses time.h to seed srand and is thus not safe for cryptographic uses. Per default
+Per default
 .B rnum
 used to return the generated number, however now that is hidden behind the -l flag
 or the --enable-legacy configure option.
