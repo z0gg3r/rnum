@@ -143,7 +143,7 @@ void print_usage(char *c)
 {
 	fprintf(
 		stderr,
-		"Usage: %s RANGE [BASE] or %s -r RANGE [-b BASE]",
+		"Usage: %s RANGE [BASE] or %s -r RANGE [-b BASE]\n",
 		c,
 		c
 	);
