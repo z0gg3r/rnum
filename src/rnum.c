@@ -151,6 +151,10 @@ void print_usage(char *c)
 
 int main(int argc, char *argv[])
 {
+	if (argc < 2) {
+		print_usage(argv[0]);
+		return 1;
+	}
 	options_t *o = parse(argc, argv);
 	if (!o) {
 		print_usage(argv[0]);
