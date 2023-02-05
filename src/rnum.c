@@ -39,7 +39,8 @@ Options *parse(int argc, char **argv)
 				err = "-b was set, but no value was given!";
 				goto abort;
 			}
-		} else if (!strcmp(argv[i], "-r") || !strcmp(argv[i], "--range")) {
+		} else if (!strcmp(argv[i], "-r") ||
+			   !strcmp(argv[i], "--range")) {
 			if ((i + 1) < argc) {
 				r_flag = 1;
 				o->range = atoi(argv[i + 1]);
@@ -47,9 +48,11 @@ Options *parse(int argc, char **argv)
 				err = "-r was set, but no value was given!";
 				goto abort;
 			}
-		} else if (!strcmp(argv[i], "-l") || !strcmp(argv[i], "--legacy")) {
+		} else if (!strcmp(argv[i], "-l") ||
+			   !strcmp(argv[i], "--legacy")) {
 			l_flag = 1;
-		} else if (!strcmp(argv[i], "-h") || !strcmp(argv[i], "--help")) {
+		} else if (!strcmp(argv[i], "-h") ||
+			   !strcmp(argv[i], "--help")) {
 			ABORT_WAS_ERROR = 0;
 			goto help;
 		}
@@ -67,7 +70,7 @@ Options *parse(int argc, char **argv)
 		goto abort;
 	}
 
-	int *args  = last_arg(argc, argv);
+	int *args = last_arg(argc, argv);
 	if (!b_flag && !r_flag && !args[0]) {
 		o->range = atoi(argv[args[1]]);
 		if (o->range == -1) {
@@ -114,8 +117,8 @@ int *last_arg(int argc, char **argv)
 	int one = 0;
 	int two = 0;
 	for (int i = 1; i < argc; ++i) {
-		if (!strcmp(argv[i], "-b") || !strcmp(argv[i], "--base")
-				|| !strcmp(argv[i], "-r") || !strcmp(argv[i], "--range")) {
+		if (!strcmp(argv[i], "-b") || !strcmp(argv[i], "--base") ||
+		    !strcmp(argv[i], "-r") || !strcmp(argv[i], "--range")) {
 			++i;
 			continue;
 		}
@@ -141,12 +144,8 @@ int get_rand(int range, int base)
 
 void print_usage(char *c)
 {
-	fprintf(
-		stderr,
-		"Usage: %s RANGE [BASE] or %s -r RANGE [-b BASE]\n",
-		c,
-		c
-	);
+	fprintf(stderr, "Usage: %s RANGE [BASE] or %s -r RANGE [-b BASE]\n", c,
+		c);
 }
 
 int main(int argc, char *argv[])
@@ -169,7 +168,7 @@ int main(int argc, char *argv[])
 
 #ifdef _USE_TIME
 	time_t t;
-	srand((unsigned) time(&t));
+	srand((unsigned)time(&t));
 #else
 	unsigned int buf;
 	if ((getrandom(&buf, sizeof(unsigned int), GRND_NONBLOCK)) == -1) {
