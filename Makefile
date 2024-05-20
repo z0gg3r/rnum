@@ -7,7 +7,8 @@ BINDIR ?= $(DESTDIR)/bin
 MANDIR ?= $(DESTDIR)/share/man
 
 rnum: rnum.c
-	@$(CC) $(CFLAGS) $(CPPFLAGS) $(LDFLAGS) -o $^ $<
+	@echo "CC $<"
+	@$(CC) $(CFLAGS) $(CPPFLAGS) $(LDFLAGS) -o $@ $<
 
 clean:
 	rm -f rnum
