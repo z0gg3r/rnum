@@ -4,7 +4,8 @@ rnum - Random Number Generator
 
 # SYNOPSIS
 
-**rnum** **-r** *max* \[**-l**\] \[**-b** *min*\]
+**rnum** **RANGE** \[**BASE**\] \[**-r** *max*\] \[**-l**\] \[**-b**
+*min*\]
 
 # DESCRIPTION
 
@@ -13,19 +14,23 @@ value that is passed to it.
 
 # OPTIONS
 
-**-r *max*** :   sets the ceiling for the number generation
+**-r, \--range *max***
 
-**-b *min*** :   sets the base for the number generation
+:   sets the ceiling for the number generation
 
-**-l**  :   return instead of printing to stdout (legacy mode)
+**-b, \--base *min***
+
+:   sets the base for the number generation
+
+**-l, \--legacy**
+
+:   return instead of printing to stdout (legacy mode)
 
 # NOTES
 
-**rnum** uses time.h to seed srand and is thus not safe for
-cryptographic uses. Per default **rnum** used to return the generated
-number, however now that is hidden behind the -l flag or the
-\--enable-legacy configure option.
+Per default **rnum** used to return the generated number, however now
+that is hidden behind the -l flag.
 
 # AUTHOR
 
-zockerfreunde03/z0gg3r 
+zocker
