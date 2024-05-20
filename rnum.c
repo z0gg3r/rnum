@@ -6,20 +6,20 @@
 
 static int ABORT_WAS_ERROR = 1;
 
-typedef struct Options {
+struct options {
 	int range;
 	int base;
 	int legacy;
-} Options;
+};
 
 int get_rand(int range, int base);
 void print_usage(char *c);
-Options *parse(int argc, char **argv);
+struct options *parse(int argc, char **argv);
 int *last_arg(int argc, char **argv);
 
-Options *parse(int argc, char **argv)
+struct options *parse(int argc, char **argv)
 {
-	Options *o = calloc(1, sizeof(Options));
+	struct options *o = calloc(1, sizeof(struct options));
 
 	char *err = "";
 	int b_flag = 0;
@@ -150,7 +150,7 @@ int main(int argc, char *argv[])
 		print_usage(argv[0]);
 		return 1;
 	}
-	Options *o = parse(argc, argv);
+	struct options *o = parse(argc, argv);
 	if (!o) {
 		print_usage(argv[0]);
 		return ABORT_WAS_ERROR;
