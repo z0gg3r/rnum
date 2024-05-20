@@ -1,8 +1,4 @@
-#ifdef _USE_TIME
-#include <time.h>
-#else
 #include <sys/random.h>
-#endif
 #include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>
@@ -166,10 +162,6 @@ int main(int argc, char *argv[])
 		return EXIT_FAILURE;
 	}
 
-#ifdef _USE_TIME
-	time_t t;
-	srand((unsigned)time(&t));
-#else
 	unsigned int buf;
 	if ((getrandom(&buf, sizeof(unsigned int), GRND_NONBLOCK)) == -1) {
 		free(o);
@@ -179,15 +171,9 @@ int main(int argc, char *argv[])
 	}
 
 	srand(buf);
-#endif
 
-#ifndef _ENABLE_LEGACY
-	int print = 1;
-#else
-	int print = 0;
-#endif
 	int num = get_rand(o->range, o->base);
-	if (print || !o->legacy) {
+	if (!o->legacy) {
 		fprintf(stdout, "%d\n", num);
 		free(o);
 		return EXIT_SUCCESS;
